@@ -1,0 +1,18 @@
+version: 1.0
+jobs:
+  hello:
+    steps:
+      - npm install -g zcatalyst-cli@latest
+      - catalyst deploy
+  world:
+    steps:
+      - echo "World"
+  hello-world:
+    steps:
+      - echo "Hello World!"
+stages:
+  - name: build
+    jobs:
+      - - hello
+        - world
+      - hello-world
